@@ -16,6 +16,15 @@ namespace UnitTestProject1
             string country = test.GetVINCountry(vin);
             Assert.AreEqual(vout, country); 
         }
+        [TestMethod]
+        public void TestMethodNoCounty() // Страна производителя не совпадает
+        {
+            string vin = "JHMCM56557C404453";
+            string vout = "A[A-T]";
+            var test = new Class1();
+            string country = test.GetVINCountry(vin);
+            Assert.AreNotEqual(vout, country);
+        }
 
         [TestMethod]
         public void TestMethodCheckVINTrue() // VIN совпадает
